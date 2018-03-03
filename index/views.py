@@ -34,7 +34,7 @@ def login(request):
                 auth.login(request, user)
                 # return render(request, 'login.html')
                 if user.is_superuser:
-                    return HttpResponseRedirect('/admin')
+                    return HttpResponseRedirect('/orders')
                 else:
                     return HttpResponseRedirect('/users')
             else:
