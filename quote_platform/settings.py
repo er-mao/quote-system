@@ -25,7 +25,7 @@ SECRET_KEY = '5w9v36jr#bjlj&=mi6fc6jp9jy2!)*1cop_w29-5ut2a0t_qf8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.174.128"]
+ALLOWED_HOSTS = ["192.168.174.128", "127.0.0.1"]
 
 
 # Application definition
@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'index',
-    'users',
     'database',
     'orders',
+    'index',
+    'users',
     'quotes',
 ]
 
@@ -109,7 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
 TIME_ZONE = 'UTC'
 
@@ -124,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = '/login'

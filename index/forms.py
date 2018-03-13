@@ -10,9 +10,10 @@ class LoginForm(forms.Form):
     username = forms.CharField(
         required=True,
         label=u'用户名',
-        error_messages={'required': '请输入用户名'},
+        error_messages={'required': u'请输入用户名'},
         widget=forms.TextInput(
             attrs={
+                'class': 'form-control',
                 'placeholder': u'用户名',
             }
         )
@@ -21,9 +22,10 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         required=True,
         label=u'密码',
-        error_messages={'required': '请输入密码'},
+        error_messages={'required': u'请输入密码'},
         widget=forms.PasswordInput(
             attrs={
+                'class': 'form-control',
                 'placeholder': u'密码',
             }
         )

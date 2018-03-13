@@ -1,0 +1,32 @@
+{% extends 'index/base.html' %} {% block title %} 报价平台 {% endblock title %} {% block body %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1>
+                    报价平台
+                </h1>
+                <p>
+                    wokmizle wdehel erim uojuvizkok ecmao wfan act ibv ajiciwkur icgah un zazujt orpu bep levimbaj ukodo cma ur nirime ki volvifoh
+                    a nob acomamu dmif
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form method="post">
+                    {% if login_error %}
+                    <div class="alert alert-danger">用户名或密码错误！</div>
+                    {% endif %} {% for field in login_form %} {% csrf_token %}
+                    <span class="form-group-addon">{{ field.label_tag }}</span>
+                    {{ field }} {% endfor %}
+                    <br/>
+                    <input type="submit" value="登录" id="login">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
