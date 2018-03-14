@@ -3,9 +3,14 @@ from django.db import models
 # Create your models here.
 
 
-class Quotes(models.Model):
-    serial = models.IntegerField()
-    project_num = models.IntegerField()
+class Orders(models.Model):
+    """
+    采购单
+    """
+    serial = models.IntegerField(unique=True,
+                                 verbose_name='序号')
+    project_num = models.IntegerField(primary_key=True,
+                                      verbose_name='项目编号')
     project_name = models.CharField(max_length=200,
                                     blank=True,
                                     null=True,
@@ -21,11 +26,22 @@ class Quotes(models.Model):
     amount = models.IntegerField(blank=True,
                                  null=True,
                                  verbose_name='工程量')
+    create_time = models.DateField(auto_now=True,
+                                   verbose_name='创建日期')
+    deadline = models.DateField(blank=True,
+                                null=True,
+                                verbose_name='截至日期')
+    comment = models.CharField(max_length=200,
+                               blank=True,
+                               null=True,
+                               verbose_name='备注')
 
 
-class Orders(models.Model):
-    project_name = models.ForeignKey(Quotes,
-                                     on_delete=models.CASCADE)
-    amount = models.IntegerField(blank=True,
-                                 null=True,
-                                 verbose_name='工程量')
+class Quotes(models.Model):
+    """
+    报价
+    """
+    requirement = models.OneToOneField('Orders',
+                                       on_delete=models.CASCADE)
+    unit_price = models.IntegerField(verbose_name='单价')
+    total_price = models.IntegerField(verbose_name='总价')

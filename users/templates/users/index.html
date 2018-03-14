@@ -7,29 +7,62 @@
         在这里查看采购单和报价单
     </p>
 </div>
-<div class="row clearfix"></div>
-<div class="col-md-6 column">
-    <h2>
-        订购单
-    </h2>
-    <p>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-    </p>
-    <p>
-        <a class="btn" href="#">查看更多</a>
-    </p>
+<div class="col-md-12 column">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            采购单
+        </div>
+        <table class="table">
+            <tr>
+                <th> 序号 </th>
+                <th> 项目编号 </th>
+                <th> 项目名称 </th>
+                <th> 项目特征描述 </th>
+                <th> 计量单位 </th>
+                <th> 工程量 </th>
+                <th> 备注 </th>
+            </tr>
+            {% for order in orders_table %}
+            <tr>
+                <th>{{ order.serial }}</th>
+                <th>{{ order.project_num }}</th>
+                <th>{{ order.project_name }}</th>
+                <th>{{ order.project_describe }}</th>
+                <th>{{ order.unit }}</th>
+                <th>{{ order.amount }}</th>
+                <th>{{ order.comment }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="btn btn-default" href="#">查看更多</a>
+    </div>
 </div>
-<div class="col-md-6 column">
-    <h2>
-        供货单
-    </h2>
-    <p>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-    </p>
-    <p>
-        <a class="btn" href="#">查看更多</a>
-    </p>
+<div class="col-md-12 column">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            报价单
+        </div>
+        <table class="table">
+            <tr>
+                <th> 项目编号 </th>
+                <th> 项目名称 </th>
+                <th> 计量单位 </th>
+                <th> 工程量 </th>
+                <th> 单价 </th>
+                <th> 总价 </th>
+            </tr>
+            {% for quote in quotes_table %}
+            <tr>
+                <th>{{ quote.requirement.project_num }}</th>
+                <th>{{ quote.requirement.project_name }}</th>
+                <th>{{ quote.requirement.unit }}</th>
+                <th>{{ quote.requirement.amount }}</th>
+                <th>{{ quote.unit_price }}</th>
+                <th>{{ quote.total_price }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a class="btn btn-default" href="#">查看更多</a>
 </div>
 {% endblock body %}
