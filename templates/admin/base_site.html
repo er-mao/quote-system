@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+{% load static%}
+
+{% block title %}订单管理{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "index/css/admin-extra.css" %}" />{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">订单管理</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
